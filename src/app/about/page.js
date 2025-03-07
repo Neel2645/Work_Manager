@@ -9,7 +9,7 @@ async function takeTime() {
 
 
 export default async function About() {
-  await takeTime();
+  // await takeTime();
   // throw new Error("this is manual error");
   return (
     <div>

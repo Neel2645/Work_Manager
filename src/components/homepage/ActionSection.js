@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import imageBanner from "../../assets/singup.svg";
+import imageBanner from "@/assets/singup.svg";
 import Image from "next/image";
 const ActionSection = () => {
   return (

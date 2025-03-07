@@ -1,9 +1,7 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, mongo } from "mongoose";
 
-const UserSachema = new mongoose.Schema({
-  name: {
-    type: String,
-  },
+const UserSachema = new Schema({
+  name: String,
   email: {
     type: String,
     unique: true,
@@ -13,12 +11,15 @@ const UserSachema = new mongoose.Schema({
     type: String,
     require: [true, "Password Required !!"],
   },
-  about: {
-    type: String,
-  },
-  profileURL: {
-    type: String,
-  },
+  about: String,
+  profileURL: String,
+  //   address: {
+  //     street: String,
+  //     city: String,
+  //     country: String,
+  //     pinCode: Number,
+  //   },
 });
 
-export const User = mongoose.models.users || mongoose.model("users", UserSachema);
+export const User =
+  mongoose.models.users || mongoose.model("users", UserSachema);

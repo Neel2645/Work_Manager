@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import bannerImage from "../../assets/login.svg";
+import bannerImage from "@/assets/login.svg";
 import Image from "next/image";
 const BannerSection = () => {
   return (

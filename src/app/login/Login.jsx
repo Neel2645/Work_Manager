@@ -32,7 +32,7 @@ const Login = () => {
       toast.success("Logged In");
       //redirect
       context.setUser(result.user);
-      router.push("/profile/user");
+      router.push("/");
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message, {
