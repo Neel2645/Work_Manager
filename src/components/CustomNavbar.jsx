@@ -22,8 +22,8 @@ const CustomNavbar = () => {
 
         <div className='pr-3'>
             <ul className='flex space-x-7 text-violet-800 font-semibold'>
-                <li><Link href="#!">Login</Link></li>
-                <li><Link href="#!">SignUp</Link></li>
+                <li><Link href="/login">Login</Link></li>
+                <li><Link href="/signup">SignUp</Link></li>
             </ul>
         </div>
    </nav>
