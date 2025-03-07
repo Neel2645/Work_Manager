@@ -16,6 +16,8 @@ const Signup = () => {
 
   const doSignup = async (event) => {
     event.preventDefault();
+
+    console.log(event);
     console.log(data);
     if (data.name.trim() === "" || data.name == null) {
       toast.warning("Name is required !!", {
@@ -24,6 +26,10 @@ const Signup = () => {
       return;
     }
 
+    /// TODO: rest of the field
+
+    /////
+    // form submit
     try {
       const result = await signUp(data);
 
@@ -180,6 +186,8 @@ const Signup = () => {
                 Reset
               </button>
             </div>
+
+            {/* {JSON.stringify(data)} */}
           </form>
         </div>
       </div>

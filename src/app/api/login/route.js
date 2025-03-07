@@ -5,15 +5,17 @@ import jwt from "jsonwebtoken";
 import { connectDb } from "@/helper/db";
 
 export async function POST(request) {
+  console.log("login api");
   const { email, password } = await request.json();
 
   try {
+    // 1.get user
     await connectDb();
     const user = await User.findOne({
       email: email,
     });
 
-    if (user === null) {
+    if (user == null) {
       throw new Error("user not found !!");
     }
 
@@ -24,6 +26,7 @@ export async function POST(request) {
     }
 
     // 3. generate token
+
     const token = jwt.sign(
       {
         _id: user._id,
@@ -33,6 +36,7 @@ export async function POST(request) {
     );
 
     // 4.create nextresponse-- cookie
+
     const response = NextResponse.json({
       message: "Login success !!",
       success: true,
@@ -46,9 +50,9 @@ export async function POST(request) {
 
     console.log(user);
     console.log(token);
+
     return response;
-  } 
-  catch (error) {
+  } catch (error) {
     return NextResponse.json(
       {
         message: error.message,

@@ -3,6 +3,7 @@ import { User } from "@/models/user";
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
+// get request function
 export async function GET(request) {
   let users = [];
   try {
@@ -19,12 +20,17 @@ export async function GET(request) {
   return NextResponse.json(users);
 }
 
-
+// post request function
+// data post
+//create user
 export async function POST(request) {
+  // fetch user detail from  request
 
   const { name, email, password, about, profileURL } = await request.json();
 
   console.log({ name, email, password, about, profileURL });
+
+  // create user object with user model
 
   const user = new User({
     name,
@@ -35,7 +41,7 @@ export async function POST(request) {
   });
 
   try {
-  
+    // save the object to  database
     user.password = bcrypt.hashSync(
       user.password,
       parseInt(process.env.BCRYPT_SALT)
@@ -60,4 +66,27 @@ export async function POST(request) {
       }
     );
   }
+
+  // const body = request.body;
+  // console.log(body);
+  // console.log(request.method);
+  // console.log(request.cookies);
+  // console.log(request.headers);
+  // console.log(request.nextUrl.pathname);
+  // console.log(request.nextUrl.searchParams);
+
+  // const jsonData = await request.json();
+
+  // const textData = await request.text();
+
+  // console.log(jsonData);
+
+  // console.log(textData);
+
+  // return NextResponse.json({
+  //   message: "posting user data",
+  // });
 }
+
+// delete request  function
+// uri variable

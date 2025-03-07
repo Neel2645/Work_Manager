@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import loginSvg from "@/assets/login.svg";
+import loginSvg from "../../assets/login.svg";
 import Image from "next/image";
 import { addTask } from "@/services/taskService";
-import { toast } from "react-toastify";
+import { taost, toast } from "react-toastify";
 
 const AddTask = () => {
   // console.log("this is add task component");
